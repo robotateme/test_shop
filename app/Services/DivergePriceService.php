@@ -23,7 +23,7 @@ class DivergePriceService implements Diverge
      */
     public function diffPrice(float $new, float $out): bool
     {
-        $this->deviationResult = (1 - $new / $out) * 100;
+        $this->deviationResult = abs(((1 - $new / $out) * 100));
         return $this->deviationResult <= $this->permissibleDeviation;
     }
 
