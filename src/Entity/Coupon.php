@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\CouponTypesEnum;
 use App\Repository\CouponRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -17,10 +18,10 @@ class Coupon
     private ?string $code = null;
 
     #[ORM\Column]
-    private ?float $value = null;
+    private ?int $value = null;
 
-    #[ORM\Column(length: 24)]
-    private ?string $type = null;
+    #[ORM\Column(enumType: CouponTypesEnum::class)]
+    private ?CouponTypesEnum $type = null;
 
     public function getId(): ?int
     {
@@ -39,24 +40,24 @@ class Coupon
         return $this;
     }
 
-    public function getValue(): ?float
+    public function getValue(): ?int
     {
         return $this->value;
     }
 
-    public function setValue(float $value): static
+    public function setValue(int $value): static
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function getType(): ?string
+    public function getType(): ?CouponTypesEnum
     {
         return $this->type;
     }
 
-    public function setType(string $type): static
+    public function setType(CouponTypesEnum $type): static
     {
         $this->type = $type;
 

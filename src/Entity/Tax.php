@@ -15,35 +15,37 @@ class Tax
     private ?int $id = null;
 
     #[ORM\Column(length: 32)]
-    private ?string $code = null;
+    private ?string $number = null;
 
-    #[ORM\Column(enumType: CouponTypesEnum::class)]
-    private ?CouponTypesEnum $type = null;
+    #[ORM\Column]
+    private ?int $rate = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCode(): ?string
+    public function getNumber(): ?string
     {
-        return $this->code;
+        return $this->number;
     }
 
-    public function setCode(string $code): static
+    public function setNumber(string $number): static
     {
-        $this->code = $code;
+        $this->number = $number;
 
         return $this;
     }
 
-    public function getType(): ?CouponTypesEnum
+    public function getRate(): ?int
     {
-        return $this->type;
+        return $this->rate;
     }
 
-    public function setType(?CouponTypesEnum $type): void
+    public function setRate(int $rate): static
     {
-        $this->type = $type;
+        $this->rate = $rate;
+
+        return $this;
     }
 }

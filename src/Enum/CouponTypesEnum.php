@@ -4,6 +4,6 @@ namespace App\Enum;
 
 enum CouponTypesEnum: string
 {
-    case TYPE_FIXED = 'fixed';
-    case TYPE_PERCENT = 'percent';
+    case TypeFixed = 'fixed';
+    case TypePercent = 'percent';
 }
