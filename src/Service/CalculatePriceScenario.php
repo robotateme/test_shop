@@ -13,7 +13,7 @@ use App\Service\CalculatePriceStrategies\NoDiscountStrategy;
 use App\Service\CalculatePriceStrategies\PercentStrategy;
 use App\Service\Exceptions\CalculatePriceException;
 
-final readonly class CalculatePriceScenario
+readonly class CalculatePriceScenario
 {
     public function __construct(
         private ProductRepository $productRepository,
@@ -29,7 +29,6 @@ final readonly class CalculatePriceScenario
     public function handle(CalculatePriceInput $input): CalculatePriceOutput|iterable
     {
         $product = $this->productRepository->find($input->product);
-
         if ($product === null) {
             throw new CalculatePriceException('Product not found');
         }

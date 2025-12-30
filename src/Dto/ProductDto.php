@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-class ProductDto
+final class ProductDto
 {
     public function __construct(public string $title, public float $price)
     {

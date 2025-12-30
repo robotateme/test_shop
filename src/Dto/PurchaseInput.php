@@ -2,7 +2,7 @@
 
 namespace App\Dto;
 
-final class CalculatePriceInput
+final class PurchaseInput
 {
     /**
      * @var int
@@ -16,4 +16,8 @@ final class CalculatePriceInput
      * @var string
      */
     public string $taxNumber;
+    /**
+     * @var string
+     */
+    public string $paymentProcessor;
 }
