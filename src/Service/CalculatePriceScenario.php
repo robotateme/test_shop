@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Dto\CalculatePriceInput;
 use App\Dto\CalculatePriceOutput;
+use App\Dto\PurchaseInput;
 use App\Enum\CouponTypesEnum;
 use App\Repository\CouponRepository;
 use App\Repository\ProductRepository;
@@ -26,7 +27,7 @@ readonly class CalculatePriceScenario
     /**
      * @throws CalculatePriceException
      */
-    public function handle(CalculatePriceInput $input): CalculatePriceOutput|iterable
+    public function handle(CalculatePriceInput|PurchaseInput $input): CalculatePriceOutput
     {
         $product = $this->productRepository->find($input->product);
         if ($product === null) {
